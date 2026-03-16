@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FamDash — Privacy Policy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #111113;
+            --bg-secondary: #1C1C1E;
+            --bg-card: #252527;
+            --gold: #C5A55A;
+            --gold-soft: rgba(197, 165, 90, 0.12);
+            --gold-border: rgba(197, 165, 90, 0.15);
+            --text-primary: #E8E4DC;
+            --text-secondary: #8A7D5A;
+            --text-muted: #5A5A5C;
+            --green: #4CAF50;
+            --blue: #38BDF8;
+            --purple: #A78BFA;
+            --red: #FF6B6B;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* Subtle grain overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            padding: 60px 0 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .logo-mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 72px;
+            height: 72px;
+            border-radius: 18px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            position: relative;
+            border: 1px solid var(--gold-border);
+            box-shadow: 0 4px 24px rgba(197, 165, 90, 0.15);
+        }
+
+        .logo-mark img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-mark::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, var(--gold), transparent);
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: #D4B262;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+            text-shadow: 0 0 20px rgba(197, 165, 90, 0.3);
+        }
+
+        header .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        header .tagline {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .effective-date {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 6px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--gold-border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+
+        /* Content */
+        main {
+            padding: 48px 0 80px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 28px;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            border: 1px solid var(--gold-border);
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .section:hover {
+            border-color: rgba(197, 165, 90, 0.3);
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
+        }
+
+        .section-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 14px;
+            letter-spacing: -0.01em;
+        }
+
+        .section p, .section li {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        .section p + p {
+            margin-top: 12px;
+        }
+
+        .section ul {
+            list-style: none;
+            margin-top: 12px;
+        }
+
+        .section ul li {
+            padding: 8px 0 8px 24px;
+            position: relative;
+            border-bottom: 1px solid rgba(197, 165, 90, 0.06);
+        }
+
+        .section ul li:last-child {
+            border-bottom: none;
+        }
+
+        .section ul li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 0.6rem;
+            top: 12px;
+        }
+
+        .highlight {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .gold {
+            color: var(--gold);
+        }
+
+        /* Emphasis cards */
+        .emphasis {
+            margin-top: 16px;
+            padding: 16px 20px;
+            background: var(--gold-soft);
+            border-radius: 10px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .emphasis p {
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.88rem;
+        }
+
+        /* Section colors */
+        .icon-shield { background: rgba(56, 189, 248, 0.1); }
+        .icon-data { background: rgba(167, 139, 250, 0.1); }
+        .icon-location { background: rgba(76, 175, 80, 0.1); }
+        .icon-share { background: rgba(197, 165, 90, 0.1); }
+        .icon-kids { background: rgba(255, 107, 107, 0.1); }
+        .icon-store { background: rgba(249, 115, 22, 0.1); }
+        .icon-contact { background: var(--gold-soft); }
+        .icon-changes { background: rgba(250, 204, 21, 0.1); }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--gold-border);
+            position: relative;
+            z-index: 1;
+        }
+
+        footer .brand {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #D4B262;
+            margin-bottom: 6px;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(197, 165, 90, 0.3);
+            transition: border-color 0.2s;
+        }
+
+        footer a:hover {
+            border-color: var(--gold);
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            animation: fadeUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.15s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.25s; }
+        .section:nth-child(5) { animation-delay: 0.3s; }
+        .section:nth-child(6) { animation-delay: 0.35s; }
+        .section:nth-child(7) { animation-delay: 0.4s; }
+        .section:nth-child(8) { animation-delay: 0.45s; }
+
+        header {
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        /* Mobile tweaks */
+        @media (max-width: 640px) {
+            header h1 { font-size: 1.8rem; }
+            .section { padding: 22px; }
+            .section h2 { font-size: 1.15rem; }
+            .container { padding: 0 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo-mark"><img src="logo.png" alt="FamDash Logo"></div>
+        <h1>FamDash</h1>
+        <div class="tagline">Your Family Dashboard</div>
+        <div class="subtitle">Privacy Policy</div>
+        <div class="effective-date">Effective: March 15, 2026</div>
+    </header>
+
+    <main>
+
+        <div class="section">
+            <div class="section-icon icon-shield">🛡️</div>
+            <h2>Our Commitment</h2>
+            <p>FamDash is built for families. Your family's data belongs to your family — not to advertisers, data brokers, or anyone else. We collect only what's needed to make the app work, and nothing more.</p>
+            <div class="emphasis">
+                <p>We do <span class="gold">not</span> sell, rent, or share your personal data with third parties for advertising or marketing purposes. Period.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-icon icon-data">📋</div>
+            <h2>What We Collect</h2>
+            <p>FamDash collects the following information to provide its core features:</p>
+            <ul>
+                <li><span class="highlight">Name</span> — your first name, displayed to family members on your card and within shared lists, to-do's, reminders, and celebrations.</li>
+                <li><span class="highlight">Family name</span> — the household name visible to all members of your family group.</li>
+                <li><span class="highlight">Location data</span> — your device's GPS coordinates, used to show family members your approximate location and calculate distances. Location is shared only with members of your family group.</li>
+                <li><span class="highlight">Device token</span> — a push notification token used to deliver alerts for shopping lists, celebrations, reminders, and to-do's. This is not used for advertising.</li>
+                <li><span class="highlight">App-generated content</span> — shopping lists, to-do items, reminders, and celebrations you create within the app.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-icon icon-location">📍</div>
+            <h2>Location Data</h2>
+            <p>Location is a core feature of FamDash. Here's how it works:</p>
+            <ul>
+                <li>Your location is shared <span class="highlight">only with members of your family group</span> — the people who joined using your household's 6-digit code.</li>
+                <li>Location data is stored in Firebase (Google Cloud) and is associated with your family's private household.</li>
+                <li>You can <span class="highlight">disable location sharing</span> at any time in Settings → Home Screen → Location Sharing.</li>
+                <li>We do not track your location history over time. Only your most recent location is stored.</li>
+                <li>Location data is not shared with any third parties.</li>
+            </ul>
+            <div class="emphasis">
+                <p>Your location is visible <span class="gold">only</span> to your family members. Nobody else — including us — monitors where you are.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-icon icon-share">🔐</div>
+            <h2>How We Store Your Data</h2>
+            <p>All data is stored securely using <span class="highlight">Google Firebase</span>, which provides enterprise-grade security including encryption in transit and at rest.</p>
+            <ul>
+                <li><span class="highlight">Shared data</span> (family to-do's, shopping lists, reminders, celebrations, family member locations) is stored in Firebase Firestore, scoped to your household.</li>
+                <li><span class="highlight">Personal data</span> (personal to-do's and reminders) is stored locally on your device using SwiftData and is never uploaded to any server.</li>
+                <li><span class="highlight">Push notifications</span> are delivered through Firebase Cloud Messaging and Apple Push Notification service (APNs).</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-icon icon-kids">👨‍👩‍👧‍👦</div>
+            <h2>Children's Privacy</h2>
+            <p>FamDash is designed to be used by families, including children as part of a family group managed by a parent or guardian. We do not knowingly collect personal information from children under 13 without parental consent.</p>
+            <p>Family groups are created and managed by an admin (typically a parent). Members join only by entering a 6-digit code provided by the admin. The admin has the ability to remove any member at any time.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-icon icon-store">🗑️</div>
+            <h2>Data Deletion</h2>
+            <p>You have full control over your data:</p>
+            <ul>
+                <li><span class="highlight">Leave a family</span> — your data is removed from that household.</li>
+                <li><span class="highlight">Delete your family</span> — the admin can delete the entire household, which removes all shared data including lists, reminders, celebrations, and member information.</li>
+                <li><span class="highlight">Completed items</span> are automatically deleted after a configurable number of days (set in Settings).</li>
+                <li>To request complete deletion of your data, contact us at the email below.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-icon icon-changes">📝</div>
+            <h2>Third-Party Services</h2>
+            <p>FamDash uses the following third-party services:</p>
+            <ul>
+                <li><span class="highlight">Firebase by Google</span> — for authentication, data storage, push notifications, and cloud functions. <a href="https://firebase.google.com/support/privacy" style="color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(197,165,90,0.3);">Firebase Privacy Policy</a></li>
+                <li><span class="highlight">Apple Push Notification service</span> — for delivering notifications to your device. <a href="https://www.apple.com/privacy/" style="color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(197,165,90,0.3);">Apple Privacy Policy</a></li>
+                <li><span class="highlight">Apple Maps / Google Maps</span> — for driving directions when you tap the directions icon. Your preference is stored locally on your device.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-icon icon-contact">✉️</div>
+            <h2>Changes & Contact</h2>
+            <p>We may update this privacy policy from time to time. Changes will be reflected on this page with an updated effective date.</p>
+            <p>If you have any questions about this privacy policy or your data, please contact us:</p>
+            <div class="emphasis">
+                <p>📧 famdash@protonmail.com</p>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="brand">FamDash</div>
+        <p style="font-style: italic; color: var(--text-secondary);">Your Family Dashboard</p>
+        <p style="margin-top: 12px;">© 2026 FamDash. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
