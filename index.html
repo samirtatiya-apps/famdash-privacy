@@ -255,6 +255,7 @@
         .icon-store { background: rgba(249, 115, 22, 0.1); }
         .icon-contact { background: var(--gold-soft); }
         .icon-changes { background: rgba(250, 204, 21, 0.1); }
+        .icon-motion { background: rgba(56, 189, 248, 0.1); }
 
         /* Footer */
         footer {
@@ -308,6 +309,7 @@
         .section:nth-child(6) { animation-delay: 0.35s; }
         .section:nth-child(7) { animation-delay: 0.4s; }
         .section:nth-child(8) { animation-delay: 0.45s; }
+        .section:nth-child(9) { animation-delay: 0.5s; }
 
         header {
             animation: fadeUp 0.6s ease forwards;
@@ -330,7 +332,7 @@
         <h1>FamDash</h1>
         <div class="tagline">Your Family Dashboard</div>
         <div class="subtitle">Privacy Policy</div>
-        <div class="effective-date">Effective: March 15, 2026</div>
+        <div class="effective-date">Effective: April 15, 2026</div>
     </header>
 
     <main>
@@ -351,9 +353,12 @@
             <ul>
                 <li><span class="highlight">Name</span> — your first name, displayed to family members on your card and within shared lists, to-do's, reminders, and celebrations.</li>
                 <li><span class="highlight">Family name</span> — the household name visible to all members of your family group.</li>
-                <li><span class="highlight">Location data</span> — your device's GPS coordinates, used to show family members your approximate location and calculate distances. Location is shared only with members of your family group.</li>
-                <li><span class="highlight">Device token</span> — a push notification token used to deliver alerts for shopping lists, celebrations, reminders, and to-do's. This is not used for advertising.</li>
-                <li><span class="highlight">App-generated content</span> — shopping lists, to-do items, reminders, and celebrations you create within the app.</li>
+                <li><span class="highlight">Location data</span> — your device's GPS coordinates, used to show family members your approximate location, calculate distances, and detect arrivals and departures from places you've defined.</li>
+                <li><span class="highlight">Location history</span> — recent stops your device has been at, used to show family members where you've been today, this week, and within the last 30 days. Visible only to members of your family group.</li>
+                <li><span class="highlight">Geofence data</span> — custom zones (with names, coordinates, and radii) that you define for places like home, school, or work, used to trigger arrival and departure notifications. Stored within your family's private household.</li>
+                <li><span class="highlight">Motion activity</span> — your device's motion state (walking, driving, or stationary), used solely to optimize battery life by reducing GPS precision when you're not moving. Motion data is processed on your device and is never stored or transmitted to any server.</li>
+                <li><span class="highlight">Device token</span> — a push notification token used to deliver alerts for shopping lists, celebrations, reminders, to-do's, and geofence events. This is not used for advertising.</li>
+                <li><span class="highlight">App-generated content</span> — shopping lists, to-do items, reminders, celebrations, and geofences you create within the app.</li>
             </ul>
         </div>
 
@@ -362,10 +367,12 @@
             <h2>Location Data</h2>
             <p>Location is a core feature of FamDash. Here's how it works:</p>
             <ul>
-                <li>Your location is shared <span class="highlight">only with members of your family group</span> — the people who joined using your household's 6-digit code.</li>
+                <li>Your location is shared <span class="highlight">only with members of your family group</span> — the people who joined using your household's invite code.</li>
                 <li>Location data is stored in Firebase (Google Cloud) and is associated with your family's private household.</li>
-                <li>You can <span class="highlight">disable location sharing</span> at any time in Settings → Home Screen → Location Sharing.</li>
-                <li>We do not track your location history over time. Only your most recent location is stored.</li>
+                <li>You can <span class="highlight">disable location sharing</span> at any time in Settings → Data &amp; Privacy → Location Sharing.</li>
+                <li><span class="highlight">Location history</span> (where you've been over time) is stored within your family's household, visible only to family members. History is automatically pruned after 30 days.</li>
+                <li><span class="highlight">Always-On Tracking</span> is an optional setting in Settings → Data &amp; Privacy. It is off by default. When enabled, FamDash uses more precise GPS updates and your device's motion sensor to optimize battery — tracking precisely when you're moving and resting when you're still.</li>
+                <li><span class="highlight">Geofences</span> (custom zones for places like home, school, or work) are defined by you and used only to trigger notifications to family members you choose. Geofence data is stored within your family's household.</li>
                 <li>Location data is not shared with any third parties.</li>
             </ul>
             <div class="emphasis">
@@ -374,12 +381,24 @@
         </div>
 
         <div class="section">
+            <div class="section-icon icon-motion">⚙️</div>
+            <h2>Motion &amp; Battery Optimization</h2>
+            <p>FamDash uses your device's motion sensor (Apple's CoreMotion framework) for one purpose only: <span class="highlight">to make Always-On Tracking gentle on your battery</span>.</p>
+            <ul>
+                <li>Motion activity (walking, driving, stationary) is read <span class="highlight">on your device only</span> and used to decide when to track precisely versus when to rest.</li>
+                <li>Motion data is <span class="highlight">never stored, never transmitted</span>, and never visible to your family members or to us.</li>
+                <li>You can revoke Motion access at any time in iOS Settings → Privacy &amp; Security → Motion &amp; Fitness → FamDash.</li>
+            </ul>
+        </div>
+
+        <div class="section">
             <div class="section-icon icon-share">🔐</div>
             <h2>How We Store Your Data</h2>
             <p>All data is stored securely using <span class="highlight">Google Firebase</span>, which provides enterprise-grade security including encryption in transit and at rest.</p>
             <ul>
-                <li><span class="highlight">Shared data</span> (family to-do's, shopping lists, reminders, celebrations, family member locations) is stored in Firebase Firestore, scoped to your household.</li>
+                <li><span class="highlight">Shared data</span> (family to-do's, shopping lists, reminders, celebrations, family member locations, location history, and geofences) is stored in Firebase Firestore, scoped to your household.</li>
                 <li><span class="highlight">Personal data</span> (personal to-do's and reminders) is stored locally on your device using SwiftData and is never uploaded to any server.</li>
+                <li><span class="highlight">Motion activity</span> is processed on your device by Apple's CoreMotion framework and is never stored or transmitted to any server.</li>
                 <li><span class="highlight">Push notifications</span> are delivered through Firebase Cloud Messaging and Apple Push Notification service (APNs).</li>
             </ul>
         </div>
@@ -388,7 +407,7 @@
             <div class="section-icon icon-kids">👨‍👩‍👧‍👦</div>
             <h2>Children's Privacy</h2>
             <p>FamDash is designed to be used by families, including children as part of a family group managed by a parent or guardian. We do not knowingly collect personal information from children under 13 without parental consent.</p>
-            <p>Family groups are created and managed by an admin (typically a parent). Members join only by entering a 6-digit code provided by the admin. The admin has the ability to remove any member at any time.</p>
+            <p>Family groups are created and managed by an admin (typically a parent). Members join only by entering an invite code provided by the admin, and the admin must approve each join request. The admin has the ability to remove any member at any time.</p>
         </div>
 
         <div class="section">
@@ -397,8 +416,9 @@
             <p>You have full control over your data:</p>
             <ul>
                 <li><span class="highlight">Leave a family</span> — your data is removed from that household.</li>
-                <li><span class="highlight">Delete your family</span> — the admin can delete the entire household, which removes all shared data including lists, reminders, celebrations, and member information.</li>
+                <li><span class="highlight">Delete your family</span> — the admin can delete the entire household, which removes all shared data including lists, reminders, celebrations, geofences, location history, and member information.</li>
                 <li><span class="highlight">Completed items</span> are automatically deleted after a configurable number of days (set in Settings).</li>
+                <li><span class="highlight">Location history</span> is automatically pruned after 30 days.</li>
                 <li>To request complete deletion of your data, contact us at the email below.</li>
             </ul>
         </div>
@@ -416,7 +436,7 @@
 
         <div class="section">
             <div class="section-icon icon-contact">✉️</div>
-            <h2>Changes & Contact</h2>
+            <h2>Changes &amp; Contact</h2>
             <p>We may update this privacy policy from time to time. Changes will be reflected on this page with an updated effective date.</p>
             <p>If you have any questions about this privacy policy or your data, please contact us:</p>
             <div class="emphasis">
